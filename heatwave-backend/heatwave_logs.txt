@@ -1,0 +1,2 @@
+--- IMD HEATWAVE MONITORING LOGS ---
+[2026-10-20T10:56:59.017Z] Request received for URL: /

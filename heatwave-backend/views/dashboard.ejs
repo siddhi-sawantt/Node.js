@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="card">
+        <h1>
+            <%= title %>
+        </h1>
+
+        <% if (records && records.length> 0) { %>
+            <% records.forEach(function(item) { %>
+                <div style="border-bottom: 1px solid #ccc; padding-bottom: 15px; margin-bottom: 15px;">
+                    <p><strong>Region:</strong>
+                        <%= item.region %>
+                    </p>
+                    <p><strong>Station ID:</strong>
+                        <%= item.stationId %>
+                    </p>
+                    <p><strong>Max Temperature:</strong>
+                        <%= item.temperature %> °C
+                    </p>
+                    <p><strong>Humidity:</strong>
+                        <%= item.humidity %> %
+                    </p>
+                    <p><strong>Calculated Heat Index:</strong>
+                        <%= item.heatIndex %> °C
+                    </p>
+                    <div class="alert <%= item.temperature >= 40 ? 'danger' : 'normal' %>">
+                        Status: <%= item.status %>
+                    </div>
+                </div>
+                <% }); %>
+                    <% } else { %>
+                        <p>No heatwave records found in database.</p>
+                        <% } %>
+    </div>
+</body>
+
+</html>
